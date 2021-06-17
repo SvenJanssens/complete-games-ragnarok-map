@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+	
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+	<script src="jquery-3.6.0.min.js"></script>
+	<script src="bootstrap-5.0.0-beta3-dist\js\bootstrap.bundle.min.js"></script>
+	<style>
+		h2 {
+			font-family: Lobster, Monospace;
+		}
+		
+		.map-container {
+			position: relative;
+		}
+		
+		.vertical-nav {
+			height: 100vh;
+			position: fixed;
+			top: 0;
+			left: 0;
+			padding-top: 10px;
+			padding-left: 10px;
+		}
+		
+		.map-container .dot {
+			position: absolute;
+			line-height: 0;
+			padding: 0;
+			border-radius: 50%;
+			z-index: 1;
+		}
+		
+		.marker {
+			width:20px;
+			height:20px;
+			font-size: 15px;
+		}
+		.big-marker {
+			width:20px;
+			height:20px;
+			font-size: 20px;
+		}
+		
+		.obelisk-red {
+			width:20px;
+			height:20px; 
+			background-color:#f70102;
+			border:2px solid #812f1a;
+		}
+		
+		.obelisk-blue {
+			width:20px;
+			height:20px;
+			background-color:#00a5ff;
+			border:2px solid #266dbf;
+		}
+		
+		.obelisk-green {
+			width:20px;
+			height:20px;
+			background-color:#14e800;
+			border:2px solid #207203;
+			margin-left:3px;
+		}
+		
+		.map-container .latitude-line{
+			position: absolute;
+			width:100%;
+			padding: 0;
+			border-bottom: 1px dashed black;
+			z-index: 1;
+		}
+		
+		.map-container .longitude-line{
+			position: absolute;
+			height:100%;
+			padding: 0;
+			border-left: 1px dashed black;
+			z-index: 1;
+		}
+		
+		.map-container .latitude-label{
+			position: absolute;
+			background-color: rgba(255, 255, 255, 0.5);
+			margin-top:2px;
+			padding-left: 4px;
+			padding-right: 4px;
+			min-width: '60px';
+			cursor: default;
+			z-index: 1;
+		}
+		
+		.map-container .longitude-label{
+			position: absolute;
+			background-color: rgba(255, 255, 255, 0.5);
+			margin-left:2px;
+			padding-left: 4px;
+			padding-right: 4px;
+			min-width: '60px';
+			cursor: default;
+			z-index: 1;
+		}
+		
+		.resourcemap {
+			width:100%;
+			height:100%;
+		}
+		
+		.tooltip-coords {
+			z-index: 2;
+		}
+	</style>
+	<script src="https://kit.fontawesome.com/db7d3286e9.js" crossorigin="anonymous"></script>
+	<script>
+		$(document).ready(function(){			
+			// shows coords near cursor
+			var tooltipCoords = $('<div id="tooltipCoords" class="tooltip-coords">').css({
+				textAlign: 'center',
+				backgroundColor: 'rgba(255, 255, 255, 0.7)',
+				textShadow: '1px 1px white',
+				color: 'black',
+				padding: '3px',
+				minWidth: '60px',
+				position: 'fixed',
+				display: 'none',
+				whiteSpace: 'nowrap',
+				border: '1px solid black',
+			}).appendTo('.body');
+		
+
+			$('.map-container').
+				each(function () {
+					var $this = $(this),
+						widthCoords = parseFloat($this.data('borderright')) - parseFloat($this.data('borderleft')),
+						heightCoords = parseFloat($this.data('borderbottom')) - parseFloat($this.data('bordertop')),
+						borderT = parseFloat($this.data('bordertop')),
+						borderL = parseFloat($this.data('borderleft'));
+
+					$this.
+						mousemove(function (e) {
+							var pos = $this.offset(),
+										top = pos.top,
+										left = pos.left,
+										lon = ((e.clientX + $(document).scrollLeft() - left) * widthCoords / $this.width() + borderL).toFixed(1),
+										lat = ((e.clientY + $(document).scrollTop() - top) * heightCoords / $this.height() + borderT).toFixed(1);
+
+							$(tooltipCoords).text(lat + ' - ' + lon).css({
+								left: e.clientX + 20,
+								top: e.clientY
+							}).show();
+						}).
+						mouseleave(function () {
+							$(tooltipCoords).hide();
+						});
+			});
+			
+			$("#search-base-input").on("keyup", function() {
+				var value = $(this).val().toLowerCase();
+				$("#list-bases li").filter(function() {
+					$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+				});
+			});
+		});
+		
+		function onClickCheckBox($id, $checked) {
+			showHideMarker($id + "-marker", $checked);
+		}
+		
+		function showHideMarker($id, $show) {
+			if ($show) {
+				$("#" + $id).css("display", "inline");
+			} else {
+				$("#" + $id).css("display", "none");
+			}
+		}
+		
+		function enlargeMarker($id) {
+			$("#" + $id).removeClass("marker");
+			$("#" + $id).addClass("big-marker");
+		}
+		
+		function normalizeMarker($id) {
+			$("#" + $id).removeClass("big-marker");
+			$("#" + $id).addClass("marker");
+		}
+	</script>
+	
+    <title>Complete Retreat Map</title>
+  </head>
+	<body class="body">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col col-md-3">
+					<div class="vertical-nav col-md-3">
+						<label class="form-label">Community Structures</label>
+						<ul class="list-group" style="padding-top:2px" id="list-community-structures">
+							<li class="list-group-item flex-column" onmouseover="enlargeMarker('public-wyvern-trap-marker')" onmouseout="normalizeMarker('public-wyvern-trap-marker')">
+								<div class="d-flex w-100 justify-content-between">
+									<div>
+										<input class="form-check-input me-1" type="checkbox" onclick="onClickCheckBox(this.id, this.checked)" value="" aria-label="..." id="public-wyvern-trap" checked>
+										<i class="fas fa-dungeon"></i> Public Wyvern Trap
+									</div>
+									<small>24:54 - 73:42</small>
+								</div>
+							</li>
+							<li class="list-group-item flex-column" onmouseover="enlargeMarker('public-library-marker')" onmouseout="normalizeMarker('public-library-marker')">
+								<div class="d-flex w-100 justify-content-between">
+									<div>
+										<input class="form-check-input me-1" type="checkbox" onclick="onClickCheckBox(this.id, this.checked)" value="" aria-label="..." id="public-library" checked>
+										<i class="fas fa-book-reader"></i> Public Library
+									</div>
+									<small>57:76 - 45:52</small>
+								</div>
+							</li>
+						</ul>
+						<br/>
+						<label for="baseDataList" class="form-label">Bases</label>
+						<input class="form-control" id="search-base-input" type="text" placeholder="Search...">
+						<ul class="list-group" style="padding-top:2px" id="list-bases">
+							<li class="list-group-item flex-column" id="item-base-john-doe"  onmouseover="enlargeMarker('base-john-doe-marker')" onmouseout="normalizeMarker('base-john-doe-marker')">
+								<div class="d-flex w-100 justify-content-between">
+									<div>
+										<input class="form-check-input me-1" type="checkbox" onclick="onClickCheckBox(this.id, this.checked)" value="" aria-label="..." id="base-john-doe" checked>
+										<i class="fas fa-house-user"></i> [JDO] John Doe @ Atlantis
+									</div>
+									<small>36:17 - 22:71</small>
+								</div>
+							</li>
+							<li class="list-group-item flex-column" id="item-base-sven"  onmouseover="enlargeMarker('base-sven-marker')" onmouseout="normalizeMarker('base-sven-marker')">
+								<div class="d-flex w-100 justify-content-between">
+									<div>
+										<input class="form-check-input me-1" type="checkbox" onclick="onClickCheckBox(this.id, this.checked)" value="" aria-label="..." id="base-sven" checked>
+										<i class="fas fa-house-user"></i> [SVN] Sven @ Clueless Clues
+									</div>
+									<small>36:17 - 22:71</small>
+								</div>
+							</li>
+						</ul>
+						<!--
+						<div class="row">
+							<div class="col-md-6">
+								<button class="btn btn-info float-end target" style="margin-top:2px;">Select All</button>
+							</div>
+							<div class="col-md-6">
+								<button class="btn btn-info" style="margin-top:2px;">Deselect All</button>
+							</div>
+						</div>
+						-->
+					</div>
+				</div>
+				<div class="col col-md-9">
+					<div class="map-container" data-bordertop="0" data-borderleft="0" data-borderright="100" data-borderbottom="100">
+						<div class="dot obelisk-red" style="left:84.5%;top:33.8%" title="Red Obelisk&#10;35:0 - 85:7&#10;"></div>
+						<div class="dot obelisk-blue" style="left:16.1%;top:16.9%" title="Blue Obelisk&#10;18:1 - 17:3&#10;"></div>
+						<div class="dot obelisk-green" style="left:36.9%;top:55.8%" title="Green Obelisk&#10;57:0 - 38:1&#10;"></div>
+						<div class="latitude-line" style="left:0.0%;top:10.0%"></div>
+						<div class="latitude-label" style="left:0.0%;top:10.0%">10</div>
+						<div class="latitude-line" style="left:0.0%;top:20.0%"></div>
+						<div class="latitude-label" style="left:0.0%;top:20.0%">20</div>
+						<div class="latitude-line" style="left:0.0%;top:30.0%"></div>
+						<div class="latitude-label" style="left:0.0%;top:30.0%">30</div>
+						<div class="latitude-line" style="left:0.0%;top:40.0%"></div>
+						<div class="latitude-label" style="left:0.0%;top:40.0%">40</div>
+						<div class="latitude-line" style="left:0.0%;top:50.0%"></div>
+						<div class="latitude-label" style="left:0.0%;top:50.0%">50</div>
+						<div class="latitude-line" style="left:0.0%;top:60.0%"></div>
+						<div class="latitude-label" style="left:0.0%;top:60.0%">60</div>
+						<div class="latitude-line" style="left:0.0%;top:70.0%"></div>
+						<div class="latitude-label" style="left:0.0%;top:70.0%">70</div>
+						<div class="latitude-line" style="left:0.0%;top:80.0%"></div>
+						<div class="latitude-label" style="left:0.0%;top:80.0%">80</div>
+						<div class="latitude-line" style="left:0.0%;top:90.0%"></div>
+						<div class="latitude-label" style="left:0.0%;top:90.0%">90</div>
+						<div class="longitude-line" style="left:10.0%;top:0.0%"></div>
+						<div class="longitude-label" style="left:10.0%;top:0.0%">10</div>
+						<div class="longitude-line" style="left:20.0%;top:0.0%"></div>
+						<div class="longitude-label" style="left:20.0%;top:0.0%">20</div>
+						<div class="longitude-line" style="left:30.0%;top:0.0%"></div>
+						<div class="longitude-label" style="left:30.0%;top:0.0%">30</div>
+						<div class="longitude-line" style="left:40.0%;top:0.0%"></div>
+						<div class="longitude-label" style="left:40.0%;top:0.0%">40</div>
+						<div class="longitude-line" style="left:50.0%;top:0.0%"></div>
+						<div class="longitude-label" style="left:50.0%;top:0.0%">50</div>
+						<div class="longitude-line" style="left:60.0%;top:0.0%"></div>
+						<div class="longitude-label" style="left:60.0%;top:0.0%">60</div>
+						<div class="longitude-line" style="left:70.0%;top:0.0%"></div>
+						<div class="longitude-label" style="left:70.0%;top:0.0%">70</div>
+						<div class="longitude-line" style="left:80.0%;top:0.0%"></div>
+						<div class="longitude-label" style="left:80.0%;top:0.0%">80</div>
+						<div class="longitude-line" style="left:90.0%;top:0.0%"></div>
+						<div class="longitude-label" style="left:90.0%;top:0.0%">90</div>
+						<div class="dot marker" style="left:11.11%;top:11.11%" title="[JDO] John Doe @ Atlantis&#10;11:11 - 11:11&#10" id="base-john-doe-marker"><i class="fas fa-house-user"></i></div>
+						<div class="dot marker" style="left:22.71%;top:36.17%" title="[SVN] Sven @ Clueless Clues&#10;36:17 - 22:71&#10" id="base-sven-marker"><i class="fas fa-house-user"></i></div>
+						<div class="dot marker" style="left:73.42%;top:24.54%" title="Public Wyvern Trap&#10;24:54 - 73:42&#10" id="public-wyvern-trap-marker"><i class="fas fa-dungeon"></i></div>
+						<div class="dot marker" style="left:45.52%;top:57.76%" title="Public Library&#10;57:76 - 45:52&#10" id="public-library-marker"><i class="fas fa-book-reader"></i></div>
+						<img alt="Ragnarok Ocean Topographic Map.jpg" src="https://static.wikia.nocookie.net/arksurvivalevolved_gamepedia/images/c/cf/Ragnarok_Ocean_Topographic_Map.jpg/revision/latest/scale-to-width-down/900?cb=20181022001002" decoding="async" width="900" height="900" class="resourcemap" data-file-width="900" data-file-height="900"  style="max-height:auto" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
