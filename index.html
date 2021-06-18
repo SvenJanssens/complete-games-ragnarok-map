@@ -134,7 +134,6 @@
 				whiteSpace: 'nowrap',
 				border: '1px solid black',
 			}).appendTo('.body');
-		
 
 			$('.map-container').
 				each(function () {
@@ -168,6 +167,41 @@
 					$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
 				});
 			});
+		});
+
+		document.addEventListener('DOMContentLoaded', function(){
+			var headers = new Headers();
+
+			var requestOptions = { 
+				method: 'GET',
+            	headers: headers,
+            	mode: 'no-cors',
+            	cache: 'default' 
+			};
+
+			fetch('json/structures.json', requestOptions)
+				.then(response => response.json())
+				.then(data => {
+					// let json = JSON.parse(req.responseText);
+					let html = "";
+
+					let jsonBases = data.filter(function(val) {
+						return (val.type !== "Base");
+					});
+
+					jsonBases.forEach(function(val) {
+						html += "<li class='list-group-item flex-column' id='item-base-" + val.id + "'>";
+						html += "<div class='d-flex w-100 justify-content-between'>";
+						html += "<div>";
+						html += "<input class='form-check-input me-1' type='checkbox' onclick='onClickCheckBox(this.id, this.checked)' value='' aria-label='...' id='item-base-" + val.id + "-checkbox' checked>";
+						html += "<i class='" + val.icon + "'></i> " + val.tribeName;
+						html += "</div>";
+						html += "<small>" + val.lon + " - " + val.lat + "</small>";
+						html += "</div>";
+						html += "</li>";
+					});
+					document.getElementById('list-bases').innerHTML = html;
+				})
 		});
 		
 		function onClickCheckBox($id, $checked) {
