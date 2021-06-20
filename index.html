@@ -95,8 +95,6 @@
 			// Add Base Markers
 			addBaseMarker(24.54, 73.42, "x1", "Public Wyvern Trap", "black", "fas fa-dungeon awesome");			
 			addBaseMarker(57.76, 45.52, "x2", "Public Library", "black", "fas fa-book-reader awesome");
-			
-			//map.setView( [70, 120], 1);
 
 			var headers = new Headers();
 
@@ -150,6 +148,7 @@
 			$("#search-base-input").on("keyup", function() {
 				var value = $(this).val().toLowerCase();
 				$("#list-bases li").filter(function() {
+					showHideMarker("base-3", $show)
 					$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
 				});
 			});
@@ -187,6 +186,7 @@
 		function highlightMarker($id) {
 			$("#" + $id).removeClass("marker-pin");
 			$("#" + $id).addClass("selected-marker-pin");
+			//map.setView( [70, 120], 1);
 		}
 		
 		function normalizeMarker($id) {
