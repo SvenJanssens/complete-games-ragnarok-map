@@ -122,16 +122,15 @@
 						html += "<li class='list-group-item flex-column' id='item-base-" + val.id + "'>";
 						html += "<div class='d-flex w-100 justify-content-between'>";
 						html += "<div>";
-						html += "<input class='form-check-input me-1' type='checkbox' onclick='onClickCheckBox(this.id, this.checked)' value='' aria-label='...' id='item-base-" + val.id + "-checkbox' checked>";
+						html += "<input class='form-check-input me-1' type='checkbox' onclick='onClickCheckBox(this.id, this.checked)' value='' aria-label='...' id='base-" + val.id + "-checkbox' checked>";
 						html += "<i class='" + val.icon + "'></i> " + val.tribeName;
 						html += "</div>";
 						html += "<small>" + val.lon + " - " + val.lat + "</small>";
 						html += "</div>";
 						html += "</li>";
-
-						$("#list-bases").append(html);
 					});
-					
+
+					$("#list-bases").append(html);					
 				})
 			
 			$("#search-base-input").on("keyup", function() {
@@ -218,24 +217,7 @@
 						<label for="baseDataList" class="form-label">Bases</label>
 						<input class="form-control" id="search-base-input" type="text" placeholder="Search...">
 						<ul class="list-group" style="padding-top:2px" id="list-bases">
-							<li class="list-group-item flex-column" id="item-base-template"  onmouseover="highlightMarker('base-template-marker')" onmouseout="normalizeMarker('base-template-marker')">
-								<div class="d-flex w-100 justify-content-between">
-									<div>
-										<input class="form-check-input me-1" type="checkbox" onclick="onClickCheckBox(this.id, this.checked)" value="" aria-label="..." id="base-template" checked>
-										<i class="fas fa-house-user"></i> Template
-									</div>
-									<small>11:11 - 11:11</small>
-								</div>
-							</li>
-							<li class="list-group-item flex-column" id="item-base-john-doe"  onmouseover="highlightMarker('base-2-marker')" onmouseout="normalizeMarker('base-2-marker')">
-								<div class="d-flex w-100 justify-content-between">
-									<div>
-										<input class="form-check-input me-1" type="checkbox" onclick="onClickCheckBox(this.id, this.checked)" value="" aria-label="..." id="base-2" checked>
-										<i class="fas fa-house-user"></i> [JDO] John Doe @ Atlantis
-									</div>
-									<small>11:11 - 11:11</small>
-								</div>
-							</li>
+							<!--
 							<li class="list-group-item flex-column" id="item-base-sven"  onmouseover="highlightMarker('base-3-marker')" onmouseout="normalizeMarker('base-3-marker')">
 								<div class="d-flex w-100 justify-content-between">
 									<div>
@@ -245,6 +227,7 @@
 									<small>36:17 - 22:71</small>
 								</div>
 							</li>
+							-->
 						</ul>
 						<!--
 						<div class="row">
