@@ -147,9 +147,11 @@
 			
 			$("#search-base-input").on("keyup", function() {
 				var value = $(this).val().toLowerCase();
+				
 				$("#list-bases li").filter(function() {
-					showHideMarker("base-3", $show)
-					$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+					var show = $(this).text().toLowerCase().indexOf(value) > -1;
+					showHideMarker("base-3", show);
+					$(this).toggle(show);
 				});
 			});
 		});
