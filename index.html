@@ -93,10 +93,8 @@
 			
 
 			// Add Base Markers
-			addBaseMarker(24.54, 73.42, 0, "Public Wyvern Trap", "black", "fas fa-dungeon awesome");			
-			addBaseMarker(57.76, 45.52, 1, "Public Library", "black", "fas fa-book-reader awesome");
-			addBaseMarker(11.1, 11.1, 2, "[JDO] John Doe @ Atlantis", "black", "fas fa-house-user awesome");
-			addBaseMarker(36.17, 22.71, 3, "[SVN] Sven @ Clueless Clues", "black","fas fa-house-user awesome");
+			addBaseMarker(24.54, 73.42, "x1", "Public Wyvern Trap", "black", "fas fa-dungeon awesome");			
+			addBaseMarker(57.76, 45.52, "x2", "Public Library", "black", "fas fa-book-reader awesome");
 			
 			//map.setView( [70, 120], 1);
 
@@ -130,7 +128,19 @@
 						html += "</li>";
 					});
 
-					$("#list-bases").append(html);					
+					$("#list-bases").append(html);		
+					
+					jsonBases.forEach(function(val) {
+						$("#item-base-" + val.id).on("mouseover", function() {
+							highlightMarker("base-" + val.id + "-marker");
+						});
+
+						$("#item-base-" + val.id).on("mouseout", function() {
+							normalizeMarker("base-" + val.id + "-marker");
+						});
+
+						addBaseMarker(val.lat, val.lon, val.id, val.tribeName, "black", val.icon + " awesome");
+					});
 				})
 			
 			$("#search-base-input").on("keyup", function() {
