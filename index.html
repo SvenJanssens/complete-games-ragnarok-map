@@ -139,6 +139,10 @@
 							normalizeMarker("base-" + val.id + "-marker");
 						});
 
+						$("#base-" + val.id).on("click", function() {
+							onClickCheckBox("base-" + val.id, this.checked);
+						});
+
 						addBaseMarker(val.lat, val.lon, val.id, val.tribeName, "black", val.icon + " awesome");
 					});
 				})
@@ -202,19 +206,19 @@
 					<div class="vertical-nav col-md-3">
 						<label class="form-label">Community Structures</label>
 						<ul class="list-group" style="padding-top:2px" id="list-community-structures">
-							<li class="list-group-item flex-column" onmouseover="highlightMarker('base-0-marker')" onmouseout="normalizeMarker('base-0-marker')">
+							<li class="list-group-item flex-column" onmouseover="highlightMarker('base-x1-marker')" onmouseout="normalizeMarker('base-x1-marker')">
 								<div class="d-flex w-100 justify-content-between">
 									<div>
-										<input class="form-check-input me-1" type="checkbox" onclick="onClickCheckBox(this.id, this.checked)" value="" aria-label="..." id="base-0" checked>
+										<input class="form-check-input me-1" type="checkbox" onclick="onClickCheckBox(this.id, this.checked)" value="" aria-label="..." id="base-x1" checked>
 										<i class="fas fa-dungeon"></i> Public Wyvern Trap
 									</div>
 									<small>24:54 - 73:42</small>
 								</div>
 							</li>
-							<li class="list-group-item flex-column" onmouseover="highlightMarker('base-1-marker')" onmouseout="normalizeMarker('base-1-marker')">
+							<li class="list-group-item flex-column" onmouseover="highlightMarker('base-x2-marker')" onmouseout="normalizeMarker('base-x2-marker')">
 								<div class="d-flex w-100 justify-content-between">
 									<div>
-										<input class="form-check-input me-1" type="checkbox" onclick="onClickCheckBox(this.id, this.checked)" value="" aria-label="..." id="base-1" checked>
+										<input class="form-check-input me-1" type="checkbox" onclick="onClickCheckBox(this.id, this.checked)" value="" aria-label="..." id="base-x2" checked>
 										<i class="fas fa-book-reader"></i> Public Library
 									</div>
 									<small>57:76 - 45:52</small>
