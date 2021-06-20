@@ -163,9 +163,7 @@
 			var baseCoords = L.latLng([ 1000 - lat * 10, lon * 10 ]);
 			baseMarker = L.marker(baseCoords, {
 					icon: baseIcon
-				}).addTo(map).bindTooltip("<b>" + description + "</b><br>" 
-					+ lat.toFixed(2).toString() + " - " 
-					+ lon.toFixed(2).toString()).openPopup();
+				}).addTo(map).bindTooltip("<b>" + description + "</b><br>" + lat + " - " + lon).openPopup();
 		}
 
 		function onClickCheckBox($id, $checked) {
