@@ -115,7 +115,7 @@
 					let html = "";
 
 					let jsonBases = data.filter(function(val) {
-						return (val.type !== "Base");
+						return (val.type == "Base");
 					});
 
 					jsonBases.forEach(function(val) {
