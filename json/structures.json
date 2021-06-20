@@ -1,314 +1,41 @@
 [
-	{
-		"id": 0,
-		"tribeName": "Anti Hyaenodon",
-		"lon": "24.4",
-		"lat": "28.0",
-		"type": "Base",
-		"icon": "fas fa-house-user"
-	},
-	{
-		"id": 1,
-		"tribeName": "Apex Predator",
-		"lon": "39.3",
-		"lat": "85.2",
-		"type": "Base",
-		"icon": "fas fa-house-user"
-	},
-	{
-		"id": 2,
-		"tribeName": "Bootysnorts",
-		"lon": "35.8",
-		"lat": "82.7",
-		"type": "Base",
-		"icon": "fas fa-house-user"
-	},
-	{
-		"id": 3,
-		"tribeName": "Clueless Clues",
-		"lon": "36.5",
-		"lat": "22.6",
-		"type": "Base",
-		"icon": "fas fa-house-user"
-	},
-	{
-		"id": 4,
-		"tribeName": "Complete Chaos",
-		"lon": "20.8",
-		"lat": "24.3",
-		"type": "Base",
-		"icon": "fas fa-crown"
-	},
-	{
-		"id": 5,
-		"tribeName": "Complete Chaos",
-		"lon": "64.4",
-		"lat": "68.2",
-		"type": "Base",
-		"icon": "fas fa-crown"
-	},
-	{
-		"id": 6,
-		"tribeName": "Ducks",
-		"lon": "69.7",
-		"lat": "35.0",
-		"type": "Base",
-		"icon": "fas fa-house-user"
-	},
-	{
-		"id": 7,
-		"tribeName": "Grey Wolves",
-		"lon": "57.4",
-		"lat": "55.9",
-		"type": "Base",
-		"icon": "fas fa-house-user"
-	},
-	{
-		"id": 8,
-		"tribeName": "House DragonHeart",
-		"lon": "74.9",
-		"lat": "35.1",
-		"type": "Base",
-		"icon": "fas fa-house-user"
-	},
-	{
-		"id": 9,
-		"tribeName": "Jazz Hands",
-		"lon": "22.0",
-		"lat": "48.4",
-		"type": "Base",
-		"icon": "fas fa-house-user"
-	},
-	{
-		"id": 10,
-		"tribeName": "JFA",
-		"lon": "41.4",
-		"lat": "42.5",
-		"type": "Base",
-		"icon": "fas fa-house-user"
-	},
-	{
-		"id": 11,
-		"tribeName": "L & S",
-		"lon": "19.9",
-		"lat": "34.8",
-		"type": "Base",
-		"icon": "fas fa-house-user"
-	},
-	{
-		"id": 12,
-		"tribeName": "Lienhart555",
-		"lon": "23.8",
-		"lat": "17.0",
-		"type": "Base",
-		"icon": "fas fa-house-user"
-	},
-	{
-		"id": 13,
-		"tribeName": "Millennium",
-		"lon": "28.2",
-		"lat": "29.1",
-		"type": "Base",
-		"icon": "fas fa-house-user"
-	},
-	{
-		"id": 14,
-		"tribeName": "Night Owl",
-		"lon": "19.0",
-		"lat": "41.9",
-		"type": "Base",
-		"icon": "fas fa-house-user"
-	},
-	{
-		"id": 15,
-		"tribeName": "Nocturnal",
-		"lon": "64.4",
-		"lat": "15.9",
-		"type": "Base",
-		"icon": "fas fa-house-user"
-	},
-	{
-		"id": 16,
-		"tribeName": "Nocturnal",
-		"lon": "17.8",
-		"lat": "79.1",
-		"type": "Base",
-		"icon": "fas fa-house-user"
-	},
-	{
-		"id": 17,
-		"tribeName": "Nocturnal",
-		"lon": "22.7",
-		"lat": "85.5",
-		"type": "Base",
-		"icon": "fas fa-house-user"
-	},
-	{
-		"id": 18,
-		"tribeName": "Nocturnal",
-		"lon": "83.4",
-		"lat": "27.8",
-		"type": "Base",
-		"icon": "fas fa-house-user"
-	},
-	{
-		"id": 19,
-		"tribeName": "Nocturnal",
-		"lon": "86.6",
-		"lat": "38.6",
-		"type": "Base",
-		"icon": "fas fa-house-user"
-	},
-	{
-		"id": 20,
-		"tribeName": "Nocturnal",
-		"lon": "85.2",
-		"lat": "20.0",
-		"type": "Base",
-		"icon": "fas fa-house-user"
-	},
-	{
-		"id": 21,
-		"tribeName": "Nocturnal",
-		"lon": "81.1",
-		"lat": "19.8",
-		"type": "Base",
-		"icon": "fas fa-house-user"
-	},
-	{
-		"id": 22,
-		"tribeName": "Olympians",
-		"lon": "10.4",
-		"lat": "23.6",
-		"type": "Base",
-		"icon": "fas fa-house-user"
-	},
-	{
-		"id": 23,
-		"tribeName": "One Man Army",
-		"lon": "27.8",
-		"lat": "81.1",
-		"type": "Base",
-		"icon": "fas fa-house-user"
-	},
-	{
-		"id": 24,
-		"tribeName": "Public Library",
-		"lon": "57.6",
-		"lat": "45.5",
-		"type": "Community",
-		"icon": "fas fa-book-reader"
-	},
-	{
-		"id": 25,
-		"tribeName": "Public Wyvern Trap",
-		"lon": "24.54",
-		"lat": "73.42",
-		"type": "Community",
-		"icon": "fas fa-dungeon"
-	},
-	{
-		"id": 26,
-		"tribeName": "Raiders of the lost ark",
-		"lon": "71.6",
-		"lat": "69.1",
-		"type": "Base",
-		"icon": "fas fa-house-user"
-	},
-	{
-		"id": 27,
-		"tribeName": "Rogue Squadron",
-		"lon": "46.4",
-		"lat": "34.2",
-		"type": "Base",
-		"icon": "fas fa-house-user"
-	},
-	{
-		"id": 28,
-		"tribeName": "The Babygrinchers",
-		"lon": "54.8",
-		"lat": "52.7",
-		"type": "Base",
-		"icon": "fas fa-house-user"
-	},
-	{
-		"id": 29,
-		"tribeName": "The New Republic",
-		"lon": "27.5",
-		"lat": "47.7",
-		"type": "Base",
-		"icon": "fas fa-house-user"
-	},
-	{
-		"id": 30,
-		"tribeName": "Tribe of Beroc",
-		"lon": "48.2",
-		"lat": "59.3",
-		"type": "Base",
-		"icon": "fas fa-house-user"
-	},
-	{
-		"id": 31,
-		"tribeName": "Tribe of Billdoh",
-		"lon": "16.2",
-		"lat": "22.4",
-		"type": "Base",
-		"icon": "fas fa-house-user"
-	},
-	{
-		"id": 32,
-		"tribeName": "Tribe of CripticWolf",
-		"lon": "22.4",
-		"lat": "42.6",
-		"type": "Base",
-		"icon": "fas fa-house-user"
-	},
-	{
-		"id": 33,
-		"tribeName": "Tribe of Fenebris",
-		"lon": "16.6",
-		"lat": "44.9",
-		"type": "Base",
-		"icon": "fas fa-house-user"
-	},
-	{
-		"id": 34,
-		"tribeName": "Tribe of James-CG",
-		"lon": "57.5",
-		"lat": "19.2",
-		"type": "Base",
-		"icon": "fas fa-crown"
-	},
-	{
-		"id": 35,
-		"tribeName": "Tribe of Lumpy",
-		"lon": "20.1",
-		"lat": "31.1",
-		"type": "Base",
-		"icon": "fas fa-house-user"
-	},
-	{
-		"id": 36,
-		"tribeName": "Tribe of ShinyB",
-		"lon": "39.8",
-		"lat": "74.8",
-		"type": "Base",
-		"icon": "fas fa-house-user"
-	},
-	{
-		"id": 37,
-		"tribeName": "Triopanogos",
-		"lon": "68.4",
-		"lat": "55.0",
-		"type": "Base",
-		"icon": "fas fa-house-user"
-	},
-	{
-		"id": 38,
-		"tribeName": "Whiskey Rex",
-		"lon": "86.0",
-		"lat": "62.9",
-		"type": "Base",
-		"icon": "fas fa-house-user"
-	}
+	{"id":0,"tribeName":"Anti Hyaenodon","lon":"28.0","lat":"24.4","type":"Member","icon":"fas fa-house-user"},
+	{"id":1,"tribeName":"Apex Predator","lon":"85.2","lat":"39.3","type":"Member","icon":"fas fa-house-user"},
+	{"id":2,"tribeName":"Bootysnorts","lon":"82.7","lat":"35.8","type":"Member","icon":"fas fa-house-user"},
+	{"id":3,"tribeName":"Clueless Clues","lon":"22.6","lat":"36.5","type":"Member","icon":"fas fa-house-user"},
+	{"id":4,"tribeName":"Complete Chaos","lon":"24.3","lat":"20.8","type":"Overseeer","icon":"fas fa-crown"},
+	{"id":5,"tribeName":"Complete Chaos","lon":"68.2","lat":"64.4","type":"Overseeer","icon":"fas fa-crown"},
+	{"id":6,"tribeName":"Ducks","lon":"35.0","lat":"69.7","type":"Member","icon":"fas fa-house-user"},
+	{"id":7,"tribeName":"Grey Wolves","lon":"55.9","lat":"57.4","type":"Member","icon":"fas fa-house-user"},
+	{"id":8,"tribeName":"House DragonHeart","lon":"35.1","lat":"74.9","type":"Member","icon":"fas fa-house-user"},
+	{"id":9,"tribeName":"Jazz Hands","lon":"48.4","lat":"22.0","type":"Member","icon":"fas fa-house-user"},
+	{"id":10,"tribeName":"JFA","lon":"42.5","lat":"41.4","type":"Member","icon":"fas fa-house-user"},
+	{"id":11,"tribeName":"L & S","lon":"34.8","lat":"19.9","type":"Member","icon":"fas fa-house-user"},
+	{"id":12,"tribeName":"Lienhart555","lon":"17.0","lat":"23.8","type":"Member","icon":"fas fa-house-user"},
+	{"id":13,"tribeName":"Millennium","lon":"29.1","lat":"28.2","type":"Member","icon":"fas fa-house-user"},
+	{"id":14,"tribeName":"Night Owl","lon":"41.9","lat":"19.0","type":"Member","icon":"fas fa-house-user"},
+	{"id":15,"tribeName":"Nocturnal","lon":"15.9","lat":"64.4","type":"Member","icon":"fas fa-house-user"},
+	{"id":16,"tribeName":"Nocturnal","lon":"79.1","lat":"17.8","type":"Member","icon":"fas fa-house-user"},
+	{"id":17,"tribeName":"Nocturnal","lon":"85.5","lat":"22.7","type":"Member","icon":"fas fa-house-user"},
+	{"id":18,"tribeName":"Nocturnal","lon":"27.8","lat":"83.4","type":"Member","icon":"fas fa-house-user"},
+	{"id":19,"tribeName":"Nocturnal","lon":"38.6","lat":"86.6","type":"Member","icon":"fas fa-house-user"},
+	{"id":20,"tribeName":"Nocturnal","lon":"20.0","lat":"85.2","type":"Member","icon":"fas fa-house-user"},
+	{"id":21,"tribeName":"Nocturnal","lon":"19.8","lat":"81.1","type":"Member","icon":"fas fa-house-user"},
+	{"id":22,"tribeName":"Olympians","lon":"23.6","lat":"10.4","type":"Member","icon":"fas fa-house-user"},
+	{"id":23,"tribeName":"One Man Army","lon":"81.1","lat":"27.8","type":"Member","icon":"fas fa-house-user"},
+	{"id":24,"tribeName":"Public Library","lon":"45.5","lat":"57.6","type":"Community","icon":"fas fa-book-reader"},
+	{"id":25,"tribeName":"Public Wyvern Trap","lon":"73.42","lat":"24.54","type":"Community","icon":"fas fa-dungeon"},
+	{"id":26,"tribeName":"Raiders of the lost ark","lon":"69.1","lat":"71.6","type":"Member","icon":"fas fa-house-user"},
+	{"id":27,"tribeName":"Rogue Squadron","lon":"34.2","lat":"46.4","type":"Member","icon":"fas fa-house-user"},
+	{"id":28,"tribeName":"The Babygrinchers","lon":"52.7","lat":"54.8","type":"Member","icon":"fas fa-house-user"},
+	{"id":29,"tribeName":"The New Republic","lon":"47.7","lat":"27.5","type":"Member","icon":"fas fa-house-user"},
+	{"id":30,"tribeName":"Tribe of Beroc","lon":"59.3","lat":"48.2","type":"Member","icon":"fas fa-house-user"},
+	{"id":31,"tribeName":"Tribe of Billdoh","lon":"22.4","lat":"16.2","type":"Member","icon":"fas fa-house-user"},
+	{"id":32,"tribeName":"Tribe of CripticWolf","lon":"42.6","lat":"22.4","type":"Member","icon":"fas fa-house-user"},
+	{"id":33,"tribeName":"Tribe of Fenebris","lon":"44.9","lat":"16.6","type":"Member","icon":"fas fa-house-user"},
+	{"id":34,"tribeName":"Tribe of James-CG","lon":"19.2","lat":"57.5","type":"Overseeer","icon":"fas fa-crown"},
+	{"id":35,"tribeName":"Tribe of Lumpy","lon":"31.1","lat":"20.1","type":"Member","icon":"fas fa-house-user"},
+	{"id":36,"tribeName":"Tribe of ShinyB","lon":"74.8","lat":"39.8","type":"Member","icon":"fas fa-house-user"},
+	{"id":37,"tribeName":"Triopanogos","lon":"55.0","lat":"68.4","type":"Member","icon":"fas fa-house-user"},
+	{"id":38,"tribeName":"Whiskey Rex","lon":"62.9","lat":"86.0","type":"Member","icon":"fas fa-house-user"}	
 ]
