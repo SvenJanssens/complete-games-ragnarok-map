@@ -160,7 +160,7 @@
 					iconAnchor: [15, 42]
 				});
 
-			var baseCoords = L.latLng([ 1000 - lat * 10, lon * 10 ]);
+			var baseCoords = L.latLng([lon * 10 , 1000 - lat * 10 ]); // Function expects reverse lon, lat instead of lat, lon
 			baseMarker = L.marker(baseCoords, {
 					icon: baseIcon
 				}).addTo(map).bindTooltip("<b>" + description + "</b><br>" + lat + " - " + lon).openPopup();
