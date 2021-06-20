@@ -93,29 +93,10 @@
 			
 
 			// Add Base Markers
-			baseIcon = L.divIcon({
-					className: 'custom-div-icon',
-					html: "<div style='background-color:black;' class='marker-pin'></div><i class='fas fa-house-user awesome'>",
-					iconSize: [30, 42],
-					iconAnchor: [15, 42]
-				});
-			
-			libraryIcon = L.divIcon({
-					className: 'custom-div-icon',
-					html: "<div style='background-color:#FFBB00;' class='marker-pin'></div><i class='fas fa-book-reader awesome'>",
-					iconSize: [30, 42],
-					iconAnchor: [15, 42]
-				});
-	
-			trapIcon = L.divIcon({
-					className: 'custom-div-icon',
-					html: "<div style='background-color:#FFBB00;' class='marker-pin'></div><i class='fas fa-dungeon awesome'>",
-					iconSize: [30, 42],
-					iconAnchor: [15, 42]
-				});
-
-			addBaseMarker(11.1, 11.1, 1, "[JDO] John Doe @ Atlantis", "black", "fas fa-house-user awesome");
-			addBaseMarker(36.17, 22.71, 2, "[SVN] Sven @ Clueless Clues", "black","fas fa-house-user awesome");
+			addBaseMarker(24.54, 73.42, 0, "Public Wyvern Trap", "black", "fas fa-dungeon awesome");			
+			addBaseMarker(57.76, 45.52, 1, "Public Library", "black", "fas fa-book-reader awesome");
+			addBaseMarker(11.1, 11.1, 2, "[JDO] John Doe @ Atlantis", "black", "fas fa-house-user awesome");
+			addBaseMarker(36.17, 22.71, 3, "[SVN] Sven @ Clueless Clues", "black","fas fa-house-user awesome");
 			
 			//map.setView( [70, 120], 1);
 
@@ -138,7 +119,7 @@
 					});
 
 					jsonBases.forEach(function(val) {
-						html = "<li class='list-group-item flex-column' id='item-base-" + val.id + "'>";
+						html += "<li class='list-group-item flex-column' id='item-base-" + val.id + "'>";
 						html += "<div class='d-flex w-100 justify-content-between'>";
 						html += "<div>";
 						html += "<input class='form-check-input me-1' type='checkbox' onclick='onClickCheckBox(this.id, this.checked)' value='' aria-label='...' id='item-base-" + val.id + "-checkbox' checked>";
@@ -147,8 +128,8 @@
 						html += "<small>" + val.lon + " - " + val.lat + "</small>";
 						html += "</div>";
 						html += "</li>";
-						
-						document.getElementById('list-bases').appendChild(html);
+
+						$("#list-bases").append(html);
 					});
 					
 				})
@@ -160,6 +141,7 @@
 				});
 			});
 		});
+		
 
 		function addBaseMarker(lat, lon, id, description, color, icon) {
 			baseIcon = L.divIcon({
@@ -213,19 +195,19 @@
 					<div class="vertical-nav col-md-3">
 						<label class="form-label">Community Structures</label>
 						<ul class="list-group" style="padding-top:2px" id="list-community-structures">
-							<li class="list-group-item flex-column" onmouseover="highlightMarker('public-wyvern-trap-marker')" onmouseout="normalizeMarker('public-wyvern-trap-marker')">
+							<li class="list-group-item flex-column" onmouseover="highlightMarker('base-0-marker')" onmouseout="normalizeMarker('base-0-marker')">
 								<div class="d-flex w-100 justify-content-between">
 									<div>
-										<input class="form-check-input me-1" type="checkbox" onclick="onClickCheckBox(this.id, this.checked)" value="" aria-label="..." id="public-wyvern-trap" checked>
+										<input class="form-check-input me-1" type="checkbox" onclick="onClickCheckBox(this.id, this.checked)" value="" aria-label="..." id="base-0" checked>
 										<i class="fas fa-dungeon"></i> Public Wyvern Trap
 									</div>
 									<small>24:54 - 73:42</small>
 								</div>
 							</li>
-							<li class="list-group-item flex-column" onmouseover="highlightMarker('public-library-marker')" onmouseout="normalizeMarker('public-library-marker')">
+							<li class="list-group-item flex-column" onmouseover="highlightMarker('base-1-marker')" onmouseout="normalizeMarker('base-1-marker')">
 								<div class="d-flex w-100 justify-content-between">
 									<div>
-										<input class="form-check-input me-1" type="checkbox" onclick="onClickCheckBox(this.id, this.checked)" value="" aria-label="..." id="public-library" checked>
+										<input class="form-check-input me-1" type="checkbox" onclick="onClickCheckBox(this.id, this.checked)" value="" aria-label="..." id="base-1" checked>
 										<i class="fas fa-book-reader"></i> Public Library
 									</div>
 									<small>57:76 - 45:52</small>
@@ -245,19 +227,19 @@
 									<small>11:11 - 11:11</small>
 								</div>
 							</li>
-							<li class="list-group-item flex-column" id="item-base-john-doe"  onmouseover="highlightMarker('base-1-marker')" onmouseout="normalizeMarker('base-1-marker')">
+							<li class="list-group-item flex-column" id="item-base-john-doe"  onmouseover="highlightMarker('base-2-marker')" onmouseout="normalizeMarker('base-2-marker')">
 								<div class="d-flex w-100 justify-content-between">
 									<div>
-										<input class="form-check-input me-1" type="checkbox" onclick="onClickCheckBox(this.id, this.checked)" value="" aria-label="..." id="base-1" checked>
+										<input class="form-check-input me-1" type="checkbox" onclick="onClickCheckBox(this.id, this.checked)" value="" aria-label="..." id="base-2" checked>
 										<i class="fas fa-house-user"></i> [JDO] John Doe @ Atlantis
 									</div>
 									<small>11:11 - 11:11</small>
 								</div>
 							</li>
-							<li class="list-group-item flex-column" id="item-base-sven"  onmouseover="highlightMarker('base-2-marker')" onmouseout="normalizeMarker('base-2-marker')">
+							<li class="list-group-item flex-column" id="item-base-sven"  onmouseover="highlightMarker('base-3-marker')" onmouseout="normalizeMarker('base-3-marker')">
 								<div class="d-flex w-100 justify-content-between">
 									<div>
-										<input class="form-check-input me-1" type="checkbox" onclick="onClickCheckBox(this.id, this.checked)" value="" aria-label="..." id="base-2" checked>
+										<input class="form-check-input me-1" type="checkbox" onclick="onClickCheckBox(this.id, this.checked)" value="" aria-label="..." id="base-3" checked>
 										<i class="fas fa-house-user"></i> [SVN] Sven @ Clueless Clues
 									</div>
 									<small>36:17 - 22:71</small>
