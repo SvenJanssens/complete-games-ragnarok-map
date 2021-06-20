@@ -76,6 +76,7 @@ html, body {
 
 .vertical-nav {
     height: 100vh;
+    max-height: 100vh;
     position: absolute;
     top: 0;
     left: 0;
