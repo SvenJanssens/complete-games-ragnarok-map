@@ -150,7 +150,7 @@
 				
 				$("#list-bases li").filter(function() {
 					var show = $(this).text().toLowerCase().indexOf(value) > -1;
-					showHideMarker($(this).id().substring(5, $(this).id.length), show);
+					showHideMarker($(this).attr("id").substring(5, $(this).attr("id").length), show);
 					$(this).toggle(show);
 				});
 			});
